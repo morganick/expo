@@ -6,6 +6,7 @@ import chalk from 'chalk';
 import { boolish } from 'getenv';
 import { Reporter } from 'metro';
 import type MetroConfig from 'metro-config';
+import { resolve as defaultResolver } from 'metro-resolver';
 import path from 'path';
 import resolveFrom from 'resolve-from';
 import { URL } from 'url';
@@ -240,6 +241,22 @@ export function getDefaultConfig(
       ),
       sourceExts,
       nodeModulesPaths,
+      resolveRequest(context, moduleName, platform, realModuleName) {
+        // only replace imports from inside react-native that match this exact path string
+        // this is intended to only affect react-native/index.js
+        if (
+          context.originModulePath.includes('react-native') &&
+          moduleName === './Libraries/BatchedBridge/NativeModules'
+        ) {
+          return {
+            filePath: path.resolve(__dirname, '..', 'proxies', 'NativeModules.js'),
+            type: 'sourceFile',
+          };
+        }
+        // chain to original resolver
+        const originalResolver = context.resolveRequest ?? defaultResolver;
+        return originalResolver(context, moduleName, platform, realModuleName);
+      },
     },
     serializer: {
       getModulesRunBeforeMainModule: () => [

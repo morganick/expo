@@ -47,6 +47,16 @@ function _getenv() {
   return data;
 }
 
+function _metroResolver() {
+  const data = require("metro-resolver");
+
+  _metroResolver = function () {
+    return data;
+  };
+
+  return data;
+}
+
 function _path() {
   const data = _interopRequireDefault(require("path"));
 
@@ -289,7 +299,25 @@ function getDefaultConfig(projectRoot, options = {}) {
       platforms: ['ios', 'android', 'native', 'testing'],
       assetExts: metroDefaultValues.resolver.assetExts.filter(assetExt => !sourceExts.includes(assetExt)),
       sourceExts,
-      nodeModulesPaths
+      nodeModulesPaths,
+
+      resolveRequest(context, moduleName, platform, realModuleName) {
+        var _context$resolveReque;
+
+        // only replace imports from inside react-native that match this exact path string
+        // this is intended to only affect react-native/index.js
+        if (context.originModulePath.includes('react-native') && moduleName === './Libraries/BatchedBridge/NativeModules') {
+          return {
+            filePath: _path().default.resolve(__dirname, '..', 'proxies', 'NativeModules.js'),
+            type: 'sourceFile'
+          };
+        } // chain to original resolver
+
+
+        const originalResolver = (_context$resolveReque = context.resolveRequest) !== null && _context$resolveReque !== void 0 ? _context$resolveReque : _metroResolver().resolve;
+        return originalResolver(context, moduleName, platform, realModuleName);
+      }
+
     },
     serializer: {
       getModulesRunBeforeMainModule: () => [require.resolve(_path().default.join(reactNativePath, 'Libraries/Core/InitializeCore')) // TODO: Bacon: load Expo side-effects
