@@ -38,7 +38,6 @@ const entryContainerStyle = css({
   alignItems: 'center',
   userSelect: 'none',
   transition: 'color 100ms',
-  border: `1px solid transparent`,
 
   '&:last-of-type': {
     marginBottom: 0,
@@ -52,9 +51,8 @@ const entryContainerStyle = css({
 const activeEntryContainerStyle = css({
   color: theme.text.default,
   fontFamily: typography.fontFaces.semiBold,
-  background: theme.background.default,
+  background: theme.background.quaternary,
   borderRadius: borderRadius.medium,
-  border: `1px solid ${theme.border.default}`,
 
   '[data-expo-theme="dark"] &': {
     backgroundColor: theme.background.tertiary,

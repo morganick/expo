@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { theme, iconSize, spacing, ChevronDownIcon, borderRadius } from '@expo/styleguide';
+import { theme, iconSize, spacing, ChevronDownIcon, borderRadius, shadows } from '@expo/styleguide';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
@@ -74,10 +74,6 @@ export function SidebarCollapsible(props: Props) {
   );
 }
 
-const chevronStyle = css({
-  transition: '100ms ease transform',
-});
-
 const titleStyle = css({
   display: 'flex',
   alignItems: 'center',
@@ -101,11 +97,6 @@ const titleStyle = css({
     },
   },
 });
-
-const chevronClosedStyle = css({
-  transform: 'rotate(-90deg)',
-});
-
 const chevronContainerStyle = css({
   backgroundColor: theme.background.default,
   border: `1px solid ${theme.border.default}`,
@@ -113,8 +104,19 @@ const chevronContainerStyle = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  boxShadow: shadows.micro,
+  height: 18,
+  width: 18,
 
   '[data-expo-theme="dark"] &': {
     backgroundColor: theme.background.tertiary,
   },
+});
+
+const chevronStyle = css({
+  transition: '100ms ease transform',
+});
+
+const chevronClosedStyle = css({
+  transform: 'rotate(-90deg)',
 });

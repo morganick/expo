@@ -2,12 +2,11 @@ import { css } from '@emotion/react';
 import {
   breakpoints,
   theme,
-  iconSize,
   spacing,
   typography,
-  ChevronRightIcon,
   Logo as LogoIcon,
   WordMarkLogo,
+  borderRadius,
 } from '@expo/styleguide';
 import React from 'react';
 
@@ -19,9 +18,11 @@ export const Logo = () => (
       <WordMarkLogo color={theme.text.default} css={[logoStyle, hideOnMobile]} />
       <LogoIcon color={theme.text.default} css={[logoStyle, showOnMobile]} />
     </LinkBase>
-    <ChevronRightIcon size={iconSize.small} color={theme.icon.secondary} />
+    {/* <ChevronRightIcon size={iconSize.small} color={theme.icon.secondary} /> */}
     <LinkBase css={linkStyle} href="/">
-      <H4 css={subtitleStyle}>Docs</H4>
+      <H4 weight="medium" css={subtitleStyle}>
+        Docs
+      </H4>
     </LinkBase>
   </div>
 );
@@ -29,7 +30,7 @@ export const Logo = () => (
 const containerStyle = css({
   display: 'flex',
   alignItems: 'center',
-  gap: spacing[1.5],
+  gap: spacing[2.5],
 });
 
 const linkStyle = css`
@@ -61,5 +62,9 @@ const showOnMobile = css`
 `;
 
 const subtitleStyle = css`
-  ${typography.fontSizes[20]}
+  ${typography.fontSizes[15]};
+  background-color: ${theme.palette.primary[100]};
+  color: ${theme.palette.primary[900]};
+  padding: ${spacing[0]}px ${spacing[3]}px;
+  border-radius: ${borderRadius.medium}px;
 `;
