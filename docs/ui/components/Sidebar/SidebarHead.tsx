@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { spacing, theme, PlanEnterpriseIcon } from '@expo/styleguide';
+import { spacing, theme, PlanEnterpriseIcon, iconSize } from '@expo/styleguide';
 import * as React from 'react';
 
 import { APIIcon, APIInactiveIcon } from './icons/API';
@@ -25,7 +25,14 @@ export const SidebarHead = ({ sidebarActiveGroup }: SidebarHeadProps) => {
       <SidebarHeadEntry
         href="/eas"
         title="Expo Application Services"
-        Icon={sidebarActiveGroup === 'eas' ? PlanEnterpriseIcon : PlanEnterpriseIcon}
+        Icon={() => (
+          <div css={easIconContainerStyle}>
+            <PlanEnterpriseIcon
+              color={sidebarActiveGroup === 'eas' ? theme.link.default : theme.icon.default}
+              size={iconSize.small}
+            />
+          </div>
+        )}
         isActive={sidebarActiveGroup === 'eas'}
       />
       <SidebarHeadEntry
@@ -56,4 +63,13 @@ const sidebarHeadContainer = css({
   padding: spacing[4],
   borderBottom: `1px solid ${theme.border.default}`,
   background: theme.background.secondary,
+});
+
+const easIconContainerStyle = css({
+  height: spacing[5],
+  width: spacing[5],
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginRight: spacing[2.5],
 });

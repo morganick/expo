@@ -42,7 +42,7 @@ export const SidebarLink = ({ info, children }: SidebarLinkProps) => {
     <div css={[STYLES_CONTAINER, isSelected && STYLES_ACTIVE_CONTAINER]}>
       <NextLink href={info.href as string} as={info.as || info.href} passHref>
         <a {...customDataAttributes} css={[STYLES_LINK, isSelected && STYLES_LINK_ACTIVE]}>
-          {isSelected && <span css={STYLES_ACTIVE_BULLET} />}
+          {isSelected && <div css={STYLES_ACTIVE_BULLET} />}
           {children}
         </a>
       </NextLink>
@@ -57,17 +57,17 @@ const STYLES_LINK = css`
   text-decoration: none;
   color: ${theme.text.secondary};
   transition: 50ms ease color;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 20px;
 
   &:hover {
-    color: ${theme.text.default};
+    color: ${theme.link.default};
   }
 `;
 
 const STYLES_LINK_ACTIVE = css`
   font-family: ${typography.fontFaces.medium};
-  color: ${theme.text.default};
+  color: ${theme.link.default};
   padding-left: 0;
 `;
 
@@ -88,7 +88,7 @@ const STYLES_ACTIVE_BULLET = css`
   width: 6px;
   min-height: 6px;
   min-width: 6px;
-  background-color: ${theme.text.default};
+  background-color: ${theme.link.default};
   border-radius: 100%;
-  margin: 0 ${spacing[2]}px;
+  margin: ${spacing[2] - 0.5}px ${spacing[2]}px;
 `;

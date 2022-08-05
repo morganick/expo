@@ -87,21 +87,14 @@ const titleStyle = css({
   marginLeft: -spacing[2],
   marginRight: -spacing[2],
   userSelect: 'none',
-  border: '1px solid transparent',
   transition: '100ms',
   padding: `${spacing[1.5]}px ${spacing[1.5]}px`,
 
   ':hover': {
     cursor: 'pointer',
-    backgroundColor: theme.background.default,
-    border: `1px solid ${theme.border.default}`,
+    backgroundColor: theme.background.quaternary,
     borderRadius: borderRadius.medium,
-    boxShadow: shadows.micro,
     transition: '100ms',
-
-    '> div': {
-      border: '1px solid transparent',
-    },
 
     '[data-expo-theme="dark"] &': {
       backgroundColor: theme.background.tertiary,
