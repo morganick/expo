@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { borderRadius, spacing, theme, typography, shadows, iconSize } from '@expo/styleguide';
+import { borderRadius, spacing, theme, typography, iconSize } from '@expo/styleguide';
 import { IconProps } from '@expo/styleguide/dist/types';
 import Link from 'next/link';
 import * as React from 'react';

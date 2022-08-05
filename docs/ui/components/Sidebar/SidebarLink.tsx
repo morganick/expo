@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { theme, typography, borderRadius, shadows, spacing } from '@expo/styleguide';
+import { theme, typography, spacing } from '@expo/styleguide';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
