@@ -1,5 +1,13 @@
 import { css } from '@emotion/react';
-import { theme, breakpoints, iconSize, SearchIcon, SlashShortcutIcon } from '@expo/styleguide';
+import {
+  theme,
+  breakpoints,
+  iconSize,
+  SearchIcon,
+  SlashShortcutIcon,
+  borderRadius,
+  typography,
+} from '@expo/styleguide';
 import Router from 'next/router';
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
@@ -122,6 +130,7 @@ const searchContainerStyle = css`
   align-items: flex-end;
   max-width: 460px;
   flex-grow: 1;
+  ${typography.fontSizes[14]};
 
   @media screen and (max-width: ${breakpoints.medium}px) {
     display: none;
@@ -143,11 +152,11 @@ const searchContainerStyle = css`
     box-sizing: border-box;
     width: 100%;
     padding: 0 16px 0 40px;
-    border-radius: 4px;
+    border-radius: ${borderRadius.medium}px;
     height: 40px;
     outline: 0;
     border: none;
-    background-color: ${theme.background.secondary};
+    background-color: ${theme.background.tertiary};
   }
 
   .svg-icons {

@@ -18,7 +18,7 @@ export const SidebarHeadEntry = ({ href, title, isActive, Icon }: SidebarHeadEnt
         <Icon
           css={entryIconStyle}
           color={isActive ? theme.link.default : theme.icon.default}
-          width={iconSize.regular} // note(simek): only for DocsLogo
+          width={iconSize.small}
         />
         <span>{title}</span>
       </div>
@@ -27,10 +27,10 @@ export const SidebarHeadEntry = ({ href, title, isActive, Icon }: SidebarHeadEnt
 };
 
 const entryContainerStyle = css({
-  ...typography.fontSizes[15],
+  ...typography.fontSizes[14],
   minHeight: 38,
   lineHeight: '100%',
-  padding: `${spacing[1.5]}px ${spacing[3]}px`,
+  padding: `${spacing[2.5]}px ${spacing[3]}px`,
   color: theme.text.secondary,
   marginBottom: spacing[1.5],
   cursor: 'pointer',
@@ -38,6 +38,7 @@ const entryContainerStyle = css({
   alignItems: 'center',
   userSelect: 'none',
   transition: 'color 100ms',
+  border: `1px solid transparent`,
 
   '&:last-of-type': {
     marginBottom: 0,
@@ -50,10 +51,10 @@ const entryContainerStyle = css({
 
 const activeEntryContainerStyle = css({
   color: theme.text.default,
-  fontFamily: typography.fontFaces.medium,
+  fontFamily: typography.fontFaces.semiBold,
   background: theme.background.default,
-  borderRadius: borderRadius.small,
-  boxShadow: shadows.micro,
+  borderRadius: borderRadius.medium,
+  border: `1px solid ${theme.border.default}`,
 
   '[data-expo-theme="dark"] &': {
     backgroundColor: theme.background.tertiary,

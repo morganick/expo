@@ -7,56 +7,6 @@ import * as React from 'react';
 import stripVersionFromPath from '~/common/stripVersionFromPath';
 import { NavigationRoute } from '~/types/common';
 
-const STYLES_LINK = css`
-  ${typography.fontSizes[15]}
-  display: flex;
-  flex-direction: row;
-  text-decoration: none;
-  color: ${theme.text.secondary};
-  transition: 50ms ease color;
-  align-items: center;
-  padding-left: 20px;
-
-  &:hover {
-    color: ${theme.text.default};
-  }
-`;
-
-const STYLES_LINK_ACTIVE = css`
-  font-family: ${typography.fontFaces.medium};
-  color: ${theme.text.default};
-  padding-left: 0;
-`;
-
-const STYLES_CONTAINER = css`
-  display: flex;
-  min-height: 32px;
-  align-items: center;
-  padding: ${spacing[1]}px;
-  padding-right: ${spacing[2]}px;
-`;
-
-const STYLES_ACTIVE_CONTAINER = css`
-  background: ${theme.background.default};
-  border-radius: ${borderRadius.small}px;
-  box-shadow: ${shadows.micro};
-  margin-left: -${spacing[0.5]}px;
-  
-  [data-expo-theme="dark"] & {
-    background-color: ${theme.background.tertiary};
-  },
-`;
-
-const STYLES_ACTIVE_BULLET = css`
-  height: 6px;
-  width: 6px;
-  min-height: 6px;
-  min-width: 6px;
-  background-color: ${theme.icon.secondary};
-  border-radius: 100%;
-  margin: 0 ${spacing[2]}px;
-`;
-
 type SidebarLinkProps = React.PropsWithChildren<{
   info: NavigationRoute;
 }>;
@@ -99,3 +49,46 @@ export const SidebarLink = ({ info, children }: SidebarLinkProps) => {
     </div>
   );
 };
+
+const STYLES_LINK = css`
+  ${typography.fontSizes[14]}
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: ${theme.text.secondary};
+  transition: 50ms ease color;
+  align-items: center;
+  padding-left: 20px;
+
+  &:hover {
+    color: ${theme.text.default};
+  }
+`;
+
+const STYLES_LINK_ACTIVE = css`
+  font-family: ${typography.fontFaces.medium};
+  color: ${theme.text.default};
+  padding-left: 0;
+`;
+
+const STYLES_CONTAINER = css`
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  padding: ${spacing[1]}px;
+  padding-right: ${spacing[2]}px;
+`;
+
+const STYLES_ACTIVE_CONTAINER = css`
+  margin-left: -${spacing[0.5]}px;
+`;
+
+const STYLES_ACTIVE_BULLET = css`
+  height: 6px;
+  width: 6px;
+  min-height: 6px;
+  min-width: 6px;
+  background-color: ${theme.text.default};
+  border-radius: 100%;
+  margin: 0 ${spacing[2]}px;
+`;

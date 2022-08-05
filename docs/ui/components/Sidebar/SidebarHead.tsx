@@ -1,10 +1,9 @@
 import { css } from '@emotion/react';
-import { spacing, theme } from '@expo/styleguide';
+import { spacing, theme, PlanEnterpriseIcon } from '@expo/styleguide';
 import * as React from 'react';
 
 import { APIIcon, APIInactiveIcon } from './icons/API';
 import { DocumentationIcon, DocumentationInactiveIcon } from './icons/Documentation';
-import { EASIcon, EASInactiveIcon } from './icons/EAS';
 import { PreviewIcon, PreviewInactiveIcon } from './icons/Preview';
 
 import { shouldShowFeaturePreviewLink } from '~/constants/FeatureFlags';
@@ -26,7 +25,7 @@ export const SidebarHead = ({ sidebarActiveGroup }: SidebarHeadProps) => {
       <SidebarHeadEntry
         href="/eas"
         title="Expo Application Services"
-        Icon={sidebarActiveGroup === 'eas' ? EASIcon : EASInactiveIcon}
+        Icon={sidebarActiveGroup === 'eas' ? PlanEnterpriseIcon : PlanEnterpriseIcon}
         isActive={sidebarActiveGroup === 'eas'}
       />
       <SidebarHeadEntry
