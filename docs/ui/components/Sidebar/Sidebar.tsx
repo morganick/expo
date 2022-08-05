@@ -11,7 +11,7 @@ const STYLES_SIDEBAR = css`
   padding: 16px 20px 16px 16px;
   width: 280px;
   position: relative;
-  background: ${theme.background.secondary};
+  background: ${theme.background.default};
 
   @media screen and (max-width: ${Constants.breakpoints.mobile}) {
     width: 100%;
@@ -19,7 +19,7 @@ const STYLES_SIDEBAR = css`
 `;
 
 const STYLES_SIDEBAR_FADE = css`
-  background: linear-gradient(${theme.background.secondary} 20%, transparent);
+  background: linear-gradient(${theme.background.default} 20%, transparent);
   height: 20px;
   width: 274px;
   position: fixed;
