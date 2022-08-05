@@ -62,7 +62,7 @@ const sidebarHeadContainer = css({
   flexDirection: 'column',
   padding: spacing[4],
   borderBottom: `1px solid ${theme.border.default}`,
-  background: theme.background.default,
+  background: theme.background.secondary,
 });
 
 const easIconContainerStyle = css({

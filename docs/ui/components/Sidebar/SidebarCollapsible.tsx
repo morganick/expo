@@ -88,7 +88,7 @@ const titleStyle = css({
 
   ':hover': {
     cursor: 'pointer',
-    backgroundColor: theme.background.tertiary,
+    backgroundColor: theme.background.quaternary,
     borderRadius: borderRadius.medium,
     transition: '100ms',
 
