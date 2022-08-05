@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { theme, iconSize, spacing, ChevronDownIcon, borderRadius, shadows } from '@expo/styleguide';
+import { theme, iconSize, spacing, ChevronDownIcon, borderRadius } from '@expo/styleguide';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
