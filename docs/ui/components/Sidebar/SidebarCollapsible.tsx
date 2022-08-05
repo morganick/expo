@@ -67,7 +67,7 @@ export function SidebarCollapsible(props: Props) {
             css={[chevronStyle, !isOpen && chevronClosedStyle]}
           />
         </div>
-        <CALLOUT weight="semiBold">{info.name}</CALLOUT>
+        <CALLOUT weight="medium">{info.name}</CALLOUT>
       </a>
       {isOpen && <div>{children}</div>}
     </>

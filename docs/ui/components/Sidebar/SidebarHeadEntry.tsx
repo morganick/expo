@@ -50,7 +50,7 @@ const entryContainerStyle = css({
 
 const activeEntryContainerStyle = css({
   color: theme.text.default,
-  fontFamily: typography.fontFaces.semiBold,
+  fontFamily: typography.fontFaces.medium,
   background: theme.background.quaternary,
   borderRadius: borderRadius.medium,
 
